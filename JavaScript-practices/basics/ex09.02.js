@@ -31,6 +31,8 @@ var formData = {
 };
 
 // queryString : name=둘리&email=dooly@gmail.com
+// &, @ 등의 문자가 URL 해석 과정에서 잘못 인식될 수 있음
+// 데이터를 안전하게 전송하기 위해 인코딩 과정 필요
 var toQueryString = function (o) {
   var qs = [];
   for (var props in o) {
