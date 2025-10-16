@@ -3,6 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script src="browser-detect.js"></script>
+<script>
+	// BrowserDetect 객체의 init 프로퍼티
+	BrowserDetect.init();
+	console.log(BrowserDetect.browser, BrowserDetect.OS, BrowserDetect.version);
+</script>
 </head>
 <body>
 	<h1>BOM(Browser Object Model)</h1>
