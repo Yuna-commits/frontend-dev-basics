@@ -3,6 +3,26 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script>
+	window.onload = function() {
+		setTimeout(function() {
+			// setAttribute / getAttribute
+			// 표준, 비표준 속성에 대해 모두 사용 가능
+			var imgElement = document.createElement("img");
+			
+			imgElement.setAttribute("src", "/ch06/dooly.png");
+			imgElement.setAttribute("alt", "아기공룡둘리");
+			imgElement.setAttribute("title", "호잇");
+			imgElement.setAttribute("style", "width: 100px");
+			
+			// imgElement.no = 10; // tag에 no attribute 추가 x, 비표준 속성
+			imgElement["data-no"] = 10; // "data-no"는 표준으로 인정
+			imgElement.setAttribute("id", 10); // tag에 no attribute 추가 o
+			
+			document.body.appendChild(imgElement);
+		}, 2000);
+	}
+</script>
 </head>
 <body>
 	<h1>DOM(Document Object Model)</h1>

@@ -3,6 +3,21 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script>
+	window.onload = function() {
+		setTimeout(function() {
+			// img property
+			var imgElement = document.createElement("img");
+			// <img>의 attribute
+			imgElement.src = "/ch06/dooly.png";
+			imgElement.alt = "아기공룡둘리";
+			imgElement.title = "호잇";
+			imgElement.style.width = "100px";
+			
+			document.body.appendChild(imgElement);
+		}, 2000);
+	}
+</script>
 </head>
 <body>
 	<h1 id='h' data-no='10'>DOM(Document Object Model)</h1>

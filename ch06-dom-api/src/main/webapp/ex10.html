@@ -3,6 +3,38 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script>
+	window.onload = function() {
+		// 1. id
+		var hd1 = document.getElementById("header-01");
+		var hd2 = document.getElementById("header-02");
+		
+		// 2. tag name
+		var hd3 = document.getElementsByTagName("h4");
+		
+		// 3. class name
+		var hd4 = document.getElementsByClassName("header");
+		
+		// 4. CSS selector
+		var hd5 = document.querySelector("#header-07"); // id
+		var hd6 = document.querySelectorAll(".header2"); // class (모든 요소 선택)
+		
+		// .innerHTML : 기존 코드에 추가
+		setTimeout(function() {
+			hd1.innerHTML += " by getElementById()"; 
+			hd2.innerHTML += " by getElementById()";
+			
+			hd3[0].innerHTML += " by getElementsByTagName()";
+			hd3[1].innerHTML += " by getElementsByTagName()";
+			
+			hd4[0].innerHTML += "by getElementsByClassName()";
+			hd4[1].innerHTML += "by getElementsByClassName()";
+			
+			hd5.innerHTML += "by querySelector()";
+			hd6[1].innerHTML += "by querySelectorAll()";
+		}, 2000);
+	}
+</script>
 </head>
 <body>
 	<h1>DOM(Document Object Model)</h1>

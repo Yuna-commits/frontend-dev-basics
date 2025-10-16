@@ -3,10 +3,49 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script>
+	window.addEventListener("load", () => {
+		document.querySelector("#input-email").focus();
+		
+		document
+			.querySelector("#form-login")
+			.addEventListener("submit", function(event) {
+				event.preventDefault(); // 동작 중단
+				
+				// 이메일 유효성 체크
+				var email = document.querySelector("#input-email").value;
+				if(email === "") {
+					alert("이메일이 비어 있습니다.");
+					document.querySelector("#input-email").focus();
+					return;
+				}
+				
+				// 비밀번호 유효성 체크
+				var password = document.querySelector("#input-password").value;
+				if(password === "") {
+					alert("비밀번호가 비어 있습니다.");
+					document.querySelector("#input-password").focus();
+					return;
+				}
+				
+				// this.submit(); // 전통적인 방식
+				console.log("Ajax login 하기...");
+			});
+	});
+</script>
 </head>
 <body>
 	<h1>DOM(Document Object Model)</h1>
-	<h2>6. 기본(default) Event Hanlder 동작 막기 - 1. anchor</h2>	
-	<a href="" id="btn-delete">삭제</a>
+	<h2>6. 기본(default) Event Hanlder 동작 막기 - 2. form: DOM Event Model Level.0</h2>
+	
+	<form id='form-login' method='post' action='/user/auth'>
+		<input type='text' name='email' id='input-email' placeholder='이메일'/>
+		<br/><br/>
+
+		<input type='password' name='password' id='input-password' placeholder='비밀번호'/>
+		<br/><br/>
+		
+		<input type='submit' value='로그인' />
+	</form>
 </body>
 </html>

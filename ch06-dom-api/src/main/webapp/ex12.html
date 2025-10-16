@@ -3,10 +3,27 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script>
+/**
+ * 	기본 이벤트 동작 막기
+ 	
+	1. anchor : click 이벤트, 버튼이나 메뉴로 사용할 때 + Ajax 통신 해야 할 때	
+	2. form : submit 이벤트, validation, Ajax 방식 post 할 때
+ */
+	window.addEventListener("load", () => {
+		document
+			.querySelector("#btn-delete")
+			// 이벤트가 일어날 때 실행할 내용
+			.addEventListener("click", (event) => {
+				event.preventDefault(); // <a>, submit 등의 동작 중단
+				console.log("Ajax API 통신으로 삭제 작업...");
+			});
+	})
+</script>
 </head>
 <body>
 	<h1>DOM(Document Object Model)</h1>
-	<h2>5. Event 처리</h2>
-	<h3 id='header'>Click!</h3>
+	<h2>6. 기본 이벤트 동작 막기</h2>
+	<a href="" id="btn-delete">삭제</a>
 </body>
 </html>

@@ -3,19 +3,51 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script>
+/**
+ * 	이벤트 전파 Event Propagation(Bubbling)
+ * 	- 발생한 이벤트가 상위(부모) element로 전파되어 가는 것
+ 
+ 	text > header > inner-div > outer-div
+ */
+	window.addEventListener("load", () => {
+		document
+			.querySelector("#outer-div")
+			.addEventListener("click", () => {
+				console.log("outer clicked");
+			});
+		
+		document
+			.querySelector("#inner-div")
+			.addEventListener("click", () => {
+				console.log("inner clicked");
+			});
+		
+		document
+			.querySelector("#header")
+			.addEventListener("click", (event) => {
+				console.log("header clicked");
+				event.stopPropagation(); // propagation 중단
+			});
+		
+		document
+			.querySelector("#text")
+			.addEventListener("click", () => {
+				console.log("text clicked");
+			});
+	});
+</script>
 </head>
 <body>
 	<h1>DOM(Document Object Model)</h1>
-	<h2>6. 기본(default) Event Hanlder 동작 막기 - 2. form: DOM Event Model Level0</h2>
+	<h2>7. Event Propagation(Bubbling)</h2>
 	
-	<form id='form-login' method='post' action='/user/auth'>
-		<input type='text' name='email' id='input-email' placeholder='이메일'/>
-		<br/><br/>
-
-		<input type='password' name='password' id='input-password' placeholder='비밀번호'/>
-		<br/><br/>
-		
-		<input type='submit' value='로그인' />
-	</form>
+	<div id='outer-div'>
+		<div id='inner-div'>
+			<h1 id='header'>
+				<span id='text'>text</span>
+			</h1>
+		</div>
+	</div>
 </body>
 </html>

@@ -3,6 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script>
+	// script가 실행하는 시점에는 아직 웹 문서 생성 x -> null
+	var element = document.getElementById("header-3");
+	console.log("DOM load가 완료되기 전 : " + element);
+
+	// window.onload() : 웹 문서(Document)가 준비됐을 때 실행
+	window.onload = function() {
+		var element = document.getElementById("header-3");
+		console.log("DOM load가 완료된 후 : " + element);
+	}
+</script>
 </head>
 <body>
 	<h1>DOM(Document Object Model)</h1>
